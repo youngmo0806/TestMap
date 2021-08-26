@@ -14,6 +14,7 @@ import CoreLocation
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
     var locationManager: CLLocationManager!
+    let netWork = NetWorking()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,15 +33,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         //위치 업데이트
         locationManager.startUpdatingLocation()
         
-        //위,경도 가져오기
-        let coor = locationManager.location?.coordinate
-        var latitude = coor?.latitude
-        var longitude = coor?.longitude
-        
-        print("위도:\(latitude!), 경도:\(longitude!)")
-        
-        
-        
         let mapView = NMFMapView(frame: view.frame)
 //        var coder = NSCoder()
         
@@ -53,11 +45,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         view.addSubview(mapView)
         
         
-        
-        
-        
-
-        
+        netWork.getTest()
     }
 
 
